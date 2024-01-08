@@ -65,6 +65,6 @@ jobs:
         FOLDER: # 要发布的内容所在的文件夹
         # 将生成的访问密钥添加到当前仓库的 Secrets 中
         # 在 GitHub 仓库页面的 Settings > Secrets 中，点击 “New repository secret”，
-        # 然后将密钥名称设置为 PUBLISH_TOKEN，将密钥值设置为之前生成的访问密钥。
+        # 然后将密钥名称设置为 PUBLISH_TOKEN，将密钥值设置为之前在账号内生成过的访问密钥。
         SSH_PRIVATE_KEY: ${{ secrets.PUBLISH_TOKEN }}
 
