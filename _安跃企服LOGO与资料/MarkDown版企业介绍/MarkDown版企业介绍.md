@@ -21,7 +21,7 @@ lang: zh-CN
 <!-- ![创始人图片](./image.png#pic_right =270x380) -->
 ![创始人图片](./image.png#pic_right)
 
-#### 刘文群（Ann Liu）
+### 刘文群（Ann Liu）
 
 - **高级会计师**
 - **深圳市会计协会专家**

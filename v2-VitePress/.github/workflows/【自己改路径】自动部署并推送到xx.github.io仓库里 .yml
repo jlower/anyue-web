@@ -1,6 +1,7 @@
 # 构建 VitePress 站点并将其部署到 GitHub Pages 的示例工作流程
-#
-name: Deploy VitePress site to Pages
+# 注意更改文件夹
+
+name: Push site to Other repository
 
 on:
   # 在针对 `main` 分支的推送上运行。如果您
@@ -45,26 +46,30 @@ jobs:
         with:
           node-version: 18
           cache: pnpm # 或 pnpm / yarn / npm
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
+          # cache-dependency-path: subdir/pnpm-lock.yaml # subdir/package-lock.json
+
       - name: Install dependencies
         run: pnpm install # 或 pnpm install / yarn install / bun install / npm ci
       - name: Build with VitePress
         run: |
           pnpm docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build / npm run docs:build
           touch docs/.vitepress/dist/.nojekyll
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: docs/.vitepress/dist
+
+          # 推送到<username>.github.io main中的一个文件夹
+          # 下面要发布的内容所在的文件夹写~/publ就能实现
+          # mkdir ~/publ
+          # cp -r docs/.vitepress/dist ~/publ
+
+      # 自动推送到<username>.github.io仓库里
       - name: publish
-      uses: s0/git-publish-subdir-action@master
-      env:
-        REPO: # 目标库
-        BRANCH: # 目标分支
-        FOLDER: # 要发布的内容所在的文件夹
-        # 将之前在Github账号内录入过公钥的SSH生成的密钥添加到当前仓库的 Secrets 中
-        # 在 GitHub 仓库页面的 Settings > Secrets 中，点击 “New repository secret”，然后将密钥名称设置为 PUBLISH_TOKEN，
-        # 密钥值设置为之前在Github账号内录入过公钥的SSH生成的密钥。
-        SSH_PRIVATE_KEY: ${{ secrets.PUBLISH_TOKEN }}
+        uses: s0/git-publish-subdir-action@master
+        env:
+          REPO: git@github.com:anyueservice/anyueservice.github.io.git # 目标库的ssh链接
+          BRANCH: main # 目标分支
+          FOLDER: docs/.vitepress/dist # 要发布的内容所在的文件夹
+
+          # 将之前在Github账号内录入过公钥的SSH生成的密钥添加到当前仓库的 Secrets 中
+          # 在 GitHub 仓库页面的 Settings > Secrets and variables > Actions > Repository secrets 中，点击 “New repository secret”，
+          # 然后将密钥名称设置为 SSH_PRIVATE_KEY，密钥值设置为之前在Github账号内录入过公钥的SSH生成的密钥。
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
