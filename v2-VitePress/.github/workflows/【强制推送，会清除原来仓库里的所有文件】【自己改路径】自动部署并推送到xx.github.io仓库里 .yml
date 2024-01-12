@@ -56,11 +56,11 @@ jobs:
           touch docs/.vitepress/dist/.nojekyll
 
           # 推送到<username>.github.io main中的一个文件夹
-          # 下面要发布的内容所在的文件夹写~/publ就能实现
-          # mkdir ~/publ
-          # cp -r docs/.vitepress/dist ~/publ
+          # 下面要发布的内容所在的文件夹写 ./publ 就能实现
+          # mkdir ./publ
+          # mv docs/.vitepress/dist ./publ/blog
 
-      # 自动推送到<username>.github.io仓库里
+      # [强制推送，会清除原来仓库里的所有文件]自动推送到<username>.github.io仓库里
       - name: publish
         uses: s0/git-publish-subdir-action@master
         env:

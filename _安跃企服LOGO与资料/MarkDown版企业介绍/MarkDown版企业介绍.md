@@ -19,7 +19,7 @@ lang: zh-CN
 
 <!-- <img  src="./image.png"  width="270" height = "380"  align = "right" /> -->
 <!-- ![创始人图片](./image.png#pic_right =270x380) -->
-![创始人图片](./image.png#pic_right)
+<!-- ![创始人图片](./image.png#pic_right) -->
 
 ### 刘文群（Ann Liu）
 
