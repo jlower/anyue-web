@@ -25,8 +25,8 @@ features:
       width: 32
       height: 32
     details: 微信号：ann-edu 或 13828874805
-    # link: /
-    # linkText: 了解更多
+    link: /img/wechat_scan.jpg
+    linkText: 扫描二维码
   - title: 邮件联系
     icon:
       src: /img/mail.svg
@@ -56,4 +56,3 @@ features:
     # linkText: 了解更多
 
 ---
-

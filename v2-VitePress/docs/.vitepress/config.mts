@@ -67,6 +67,10 @@ export default defineConfig({
     //   copyright: "Copyright © 2018-2024",
     // },
 
+    externalLinkIcon: true,
 
+    returnToTopLabel: '返回顶部',
+
+    
   }
 })
