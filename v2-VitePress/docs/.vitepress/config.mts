@@ -9,12 +9,15 @@ export default defineConfig({
   // 则需要设置此项。如果计划将站点部署到 https://foo.github.io/bar/，
   // 那么应该将 base 设置为 “/bar/”。它应该始终以 /开头和结尾。base 会自动添加到其他选项中以 / 开头的所有 URL 前面，因此只需指定一次。
   base: '/',
-
+  // 站点地图
+  sitemap: {
+    hostname: 'https://anyueservice.lowoneko.eu.org/'
+  },
+  
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
     logo: '/img/annyue-logo.svg',
     siteTitle: '深圳市安跃企业服务',
-
     nav: [
       { text: '主页', link: '/' },
       { text: '企业介绍', link: '/markdown-docs/company-introduction' },
